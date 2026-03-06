@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import Augenstein from './augenstein.tsx'
 
 function App() {
-  return <Augenstein />
+  return <Augenstein />;
 }
 
 createRoot(document.getElementById('root')!).render(
