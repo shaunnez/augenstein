@@ -1,8 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import Augenstein from './augenstein.tsx'
 
 function App() {
-  return <h1>Hello from Augenstein</h1>
+  return <Augenstein />
 }
 
 createRoot(document.getElementById('root')!).render(
