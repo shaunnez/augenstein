@@ -1,96 +1,96 @@
-import { useState, useEffect, useRef, useCallback, type ReactNode, type ChangeEvent } from “react”;
-import “./main.css”;
+import { useState, useEffect, useRef, useCallback, type ReactNode, type ChangeEvent } from "react";
+import "./main.css";
 
 // ─── Constants ────────────────────────────────────────────
 const IMAGES = {
-heroBg: “https://images.pexels.com/photos/265906/pexels-photo-265906.jpeg?w=1600”,
-heroRing: “https://images.pexels.com/photos/691046/pexels-photo-691046.jpeg?w=900”,
-rings: “https://images.pexels.com/photos/1616096/pexels-photo-1616096.jpeg?w=800”,
-watches: “https://images.pexels.com/photos/169378/pexels-photo-169378.jpeg?w=800”,
-fineJewellery: “https://images.pexels.com/photos/248077/pexels-photo-248077.jpeg?w=800”,
-stolenGF: “https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?w=800”,
-karenWalker: “https://images.pexels.com/photos/2697598/pexels-photo-2697598.jpeg?w=800”,
-engagement: “https://images.pexels.com/photos/2849742/pexels-photo-2849742.jpeg?w=800”,
-watchRepair: “https://images.pexels.com/photos/3641056/pexels-photo-3641056.jpeg?w=800”,
+heroBg: "https://images.pexels.com/photos/265906/pexels-photo-265906.jpeg?w=1600",
+heroRing: "https://images.pexels.com/photos/691046/pexels-photo-691046.jpeg?w=900",
+rings: "https://images.pexels.com/photos/1616096/pexels-photo-1616096.jpeg?w=800",
+watches: "https://images.pexels.com/photos/169378/pexels-photo-169378.jpeg?w=800",
+fineJewellery: "https://images.pexels.com/photos/248077/pexels-photo-248077.jpeg?w=800",
+stolenGF: "https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?w=800",
+karenWalker: "https://images.pexels.com/photos/2697598/pexels-photo-2697598.jpeg?w=800",
+engagement: "https://images.pexels.com/photos/2849742/pexels-photo-2849742.jpeg?w=800",
+watchRepair: "https://images.pexels.com/photos/3641056/pexels-photo-3641056.jpeg?w=800",
 } as const;
 
 const NAV_ITEMS = [
-{ label: “Products”, href: “#products” },
-{ label: “Services”, href: “#services” },
-{ label: “Repairs”, href: “#repairs” },
-{ label: “About”, href: “#about” },
-{ label: “Visit”, href: “#visit” },
+{ label: "Products", href: "#products" },
+{ label: "Services", href: "#services" },
+{ label: "Repairs", href: "#repairs" },
+{ label: "About", href: "#about" },
+{ label: "Visit", href: "#visit" },
 ] as const;
 
 const ENQUIRY_TYPES = [
-“General enquiry”,
-“Jewellery”,
-“Watch sales or service”,
-“Repair or restoration”,
-“Custom design or remodel”,
-“Engagement or special occasion”,
-“Valuation”,
+"General enquiry",
+"Jewellery",
+"Watch sales or service",
+"Repair or restoration",
+"Custom design or remodel",
+"Engagement or special occasion",
+"Valuation",
 ] as const;
 
 const PRODUCTS = [
-{ image: IMAGES.rings, title: “Gemstone Rings”, desc: “From simple elegance to sophisticated coloured gemstones.” },
-{ image: IMAGES.watches, title: “Watches”, desc: “Raymond Weil, Citizen, Casio, Olympic, Roamer & Royal London.” },
-{ image: IMAGES.fineJewellery, title: “Fine Jewellery”, desc: “Earrings, necklaces, pendants, and bracelets.” },
-{ image: IMAGES.stolenGF, title: “Stolen Girlfriends Club”, desc: “Bold, iconic New Zealand jewellery design.” },
-{ image: IMAGES.karenWalker, title: “Karen Walker”, desc: “Distinctive contemporary jewellery from NZ’s leading designer.” },
-{ image: IMAGES.engagement, title: “Engagement & Bridal”, desc: “Find the perfect ring for life’s biggest moment.” },
+{ image: IMAGES.rings, title: "Gemstone Rings", desc: "From simple elegance to sophisticated coloured gemstones." },
+{ image: IMAGES.watches, title: "Watches", desc: "Raymond Weil, Citizen, Casio, Olympic, Roamer & Royal London." },
+{ image: IMAGES.fineJewellery, title: "Fine Jewellery", desc: "Earrings, necklaces, pendants, and bracelets." },
+{ image: IMAGES.stolenGF, title: "Stolen Girlfriends Club", desc: "Bold, iconic New Zealand jewellery design." },
+{ image: IMAGES.karenWalker, title: "Karen Walker", desc: "Distinctive contemporary jewellery from NZ's leading designer." },
+{ image: IMAGES.engagement, title: "Engagement & Bridal", desc: "Find the perfect ring for life's biggest moment." },
 ] as const;
 
 const SERVICES = [
 {
-icon: “💎”,
-title: “Jewellery”,
-desc: “Hand-selected pieces for everyday wear, gifting, and special occasions. As a manufacturing jeweller, we can also create to your exact requirements.”,
-tags: [“Rings”, “Necklaces”, “Earrings”, “Bracelets”, “Pendants”],
+icon: "💎",
+title: "Jewellery",
+desc: "Hand-selected pieces for everyday wear, gifting, and special occasions. As a manufacturing jeweller, we can also create to your exact requirements.",
+tags: ["Rings", "Necklaces", "Earrings", "Bracelets", "Pendants"],
 },
 {
-icon: “⌚”,
-title: “Watch Sales & Service”,
-desc: “Quality watches from leading brands, backed by certified watchmakers with European training. Battery replacements from $25.”,
-tags: [“Raymond Weil”, “Citizen”, “Casio”, “Olympic”, “Roamer”, “Royal London”],
+icon: "⌚",
+title: "Watch Sales & Service",
+desc: "Quality watches from leading brands, backed by certified watchmakers with European training. Battery replacements from $25.",
+tags: ["Raymond Weil", "Citizen", "Casio", "Olympic", "Roamer", "Royal London"],
 },
 {
-icon: “🔧”,
-title: “In-House Repairs”,
-desc: “Full workshop on-site with all repairs kept secure in our safes overnight. Speak directly with the jeweller to ensure we understand your needs.”,
-tags: [“Resizing”, “Stone setting”, “Polishing”, “Chain repairs”, “Restoration”],
+icon: "🔧",
+title: "In-House Repairs",
+desc: "Full workshop on-site with all repairs kept secure in our safes overnight. Speak directly with the jeweller to ensure we understand your needs.",
+tags: ["Resizing", "Stone setting", "Polishing", "Chain repairs", "Restoration"],
 },
 {
-icon: “✨”,
-title: “Custom Design & Remodelling”,
-desc: “Transform an existing piece into something new, or work with us to design a completely bespoke creation.”,
-tags: [“Bespoke design”, “Remodelling”, “Valuations”, “Engravings”],
+icon: "✨",
+title: "Custom Design & Remodelling",
+desc: "Transform an existing piece into something new, or work with us to design a completely bespoke creation.",
+tags: ["Bespoke design", "Remodelling", "Valuations", "Engravings"],
 },
 ] as const;
 
 const REPAIR_ITEMS = [
-“Batteries (under 20 min)”,
-“Water pressure testing”,
-“Full overhaul”,
-“Ring resizing”,
-“Stone replacement”,
-“Clock restoration”,
-“Rhodium plating”,
-“Insurance valuations”,
+"Batteries (under 20 min)",
+"Water pressure testing",
+"Full overhaul",
+"Ring resizing",
+"Stone replacement",
+"Clock restoration",
+"Rhodium plating",
+"Insurance valuations",
 ] as const;
 
 const STATS = [
-{ number: “35+”, label: “Years serving Browns Bay” },
-{ number: “70+”, label: “Years combined watchmaking experience” },
-{ number: “3rd & 4th”, label: “Generation watch & clock makers” },
-{ number: “On-Site”, label: “Full workshop facility” },
+{ number: "35+", label: "Years serving Browns Bay" },
+{ number: "70+", label: "Years combined watchmaking experience" },
+{ number: "3rd & 4th", label: "Generation watch & clock makers" },
+{ number: "On-Site", label: "Full workshop facility" },
 ] as const;
 
 const MAPS_EMBED_URL =
-“https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3194.3!2d174.7475!3d-36.7135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d39e3c5f6b7c1%3A0x2a38b0e5e39b4c0!2s60+Clyde+Rd%2C+Browns+Bay%2C+Auckland+0630!5e0!3m2!1sen!2snz!4v1700000000000”;
+"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3194.3!2d174.7475!3d-36.7135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d39e3c5f6b7c1%3A0x2a38b0e5e39b4c0!2s60+Clyde+Rd%2C+Browns+Bay%2C+Auckland+0630!5e0!3m2!1sen!2snz!4v1700000000000";
 
 // ─── Hooks ────────────────────────────────────────────────
-function useInView(threshold = 0.12): [React.RefObject<HTMLDivElement | null>, boolean] {
+function useInView(threshold = 0.12): [React.RefObject<HTMLDivElement>, boolean] {
 const ref = useRef<HTMLDivElement>(null);
 const [isVisible, setIsVisible] = useState(false);
 
@@ -98,7 +98,6 @@ useEffect(() => {
 const el = ref.current;
 if (!el) return;
 
-```
 const observer = new IntersectionObserver(
   ([entry]) => {
     if (entry.isIntersecting) {
@@ -111,8 +110,6 @@ const observer = new IntersectionObserver(
 
 observer.observe(el);
 return () => observer.disconnect();
-```
-
 }, [threshold]);
 
 return [ref, isVisible];
@@ -123,8 +120,8 @@ const [scrolled, setScrolled] = useState(false);
 
 useEffect(() => {
 const handleScroll = () => setScrolled(window.scrollY > offset);
-window.addEventListener(“scroll”, handleScroll);
-return () => window.removeEventListener(“scroll”, handleScroll);
+window.addEventListener("scroll", handleScroll);
+return () => window.removeEventListener("scroll", handleScroll);
 }, [offset]);
 
 return scrolled;
@@ -146,7 +143,7 @@ ref={ref}
 className={className}
 style={{
 opacity: isVisible ? 1 : 0,
-transform: isVisible ? “translateY(0)” : “translateY(32px)”,
+transform: isVisible ? "translateY(0)" : "translateY(32px)",
 transition: `opacity 0.9s cubic-bezier(0.22,1,0.36,1) ${delay}s, transform 0.9s cubic-bezier(0.22,1,0.36,1) ${delay}s`,
 }}
 >
@@ -158,11 +155,11 @@ transition: `opacity 0.9s cubic-bezier(0.22,1,0.36,1) ${delay}s, transform 0.9s 
 function Diamond({ size = 10, light = false }: { size?: number; light?: boolean }) {
 return (
 <span
-className=“diamond”
+className="diamond"
 style={{
 width: size,
 height: size,
-background: light ? “rgba(255,255,255,0.5)” : undefined,
+background: light ? "rgba(255,255,255,0.5)" : undefined,
 }}
 />
 );
@@ -178,7 +175,7 @@ return (
 );
 }
 
-type ButtonVariant = “gold” | “outline” | “outlineLight” | “outlineGold”;
+type ButtonVariant = "gold" | "outline" | "outlineLight" | "outlineGold";
 
 interface ButtonProps {
 children: ReactNode;
@@ -188,13 +185,13 @@ className?: string;
 }
 
 const VARIANT_CLASS_MAP: Record<ButtonVariant, string> = {
-gold: “btn–gold”,
-outline: “btn–outline”,
-outlineLight: “btn–outline-light”,
-outlineGold: “btn–outline-gold”,
+gold: "btn-gold",
+outline: "btn-outline",
+outlineLight: "btn-outline-light",
+outlineGold: "btn-outline-gold",
 };
 
-function Button({ children, variant = “gold”, onClick, className = “” }: ButtonProps) {
+function Button({ children, variant = "gold", onClick, className = "" }: ButtonProps) {
 return (
 <button className={`btn ${VARIANT_CLASS_MAP[variant]} ${className}`} onClick={onClick}>
 {children}
@@ -212,11 +209,11 @@ message: string;
 }
 
 const INITIAL_FORM: EnquiryForm = {
-name: “”,
-email: “”,
-phone: “”,
-type: “General enquiry”,
-message: “”,
+name: "",
+email: "",
+phone: "",
+type: "General enquiry",
+message: "",
 };
 
 function EnquiryModal({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -224,23 +221,22 @@ const [form, setForm] = useState<EnquiryForm>(INITIAL_FORM);
 const [submitted, setSubmitted] = useState(false);
 
 useEffect(() => {
-document.body.style.overflow = open ? “hidden” : “”;
+document.body.style.overflow = open ? "hidden" : "";
 if (open) setSubmitted(false);
-return () => { document.body.style.overflow = “”; };
+return () => { document.body.style.overflow = ""; };
 }, [open]);
 
 if (!open) return null;
 
 const updateField = (field: keyof EnquiryForm) => (
 e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-) => setForm((prev) => ({ …prev, [field]: e.target.value }));
+) => setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
 return (
 <div className="modal-backdrop" onClick={onClose}>
-<div className=“modal” onClick={(e) => e.stopPropagation()}>
+<div className="modal" onClick={(e) => e.stopPropagation()}>
 <button className="modal__close" onClick={onClose}>×</button>
 
-```
     {submitted ? (
       <div style={{ textAlign: "center", padding: "40px 0" }}>
         <Diamond size={14} />
@@ -314,8 +310,6 @@ return (
     )}
   </div>
 </div>
-```
-
 );
 }
 
@@ -334,11 +328,10 @@ return (
 <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
 <div className="header__inner">
 <a href="#" className="header__brand">
-<span className="header__title">Augenstein’s</span>
+<span className="header__title">Augenstein's</span>
 <span className="header__subtitle">Jeweller & Watchmaker · Est. 1989</span>
 </a>
 
-```
       <nav className="header__nav">
         {NAV_ITEMS.map(({ label, href }) => (
           <a key={label} href={href} className="header__nav-link">{label}</a>
@@ -380,8 +373,6 @@ return (
     <a href="tel:+6494794391" className="mobile-menu__phone">(09) 479 4391</a>
   </div>
 </>
-```
-
 );
 }
 
@@ -401,13 +392,12 @@ return (
 <section className="hero">
 <img
 src={IMAGES.heroBg}
-alt=””
+alt=""
 className={`hero__bg ${loaded ? "hero__bg--loaded" : ""}`}
 />
 <div className="hero__overlay-gold" />
 <div className="hero__overlay-vignette" />
 
-```
   <div className="hero__inner">
     <div>
       <div className={animClass(1)}>
@@ -450,18 +440,16 @@ className={`hero__bg ${loaded ? "hero__bg--loaded" : ""}`}
     <div className="hero__scroll-line" />
   </div>
 </section>
-```
-
 );
 }
 
 // ─── Trust Strip ──────────────────────────────────────────
 const TRUST_ITEMS = [
-“Family Owned & Operated”,
-“Since 1989”,
-“3rd & 4th Generation Watchmakers”,
-“Full Workshop On-Site”,
-“70+ Years Combined Experience”,
+"Family Owned & Operated",
+"Since 1989",
+"3rd & 4th Generation Watchmakers",
+"Full Workshop On-Site",
+"70+ Years Combined Experience",
 ];
 
 function TrustStrip() {
@@ -483,18 +471,18 @@ return (
 function About() {
 return (
 <section id="about" className="section section--warm-white">
-<div className=“section__container section__container–narrow” style={{ textAlign: “center” }}>
+<div className="section__container section__container-narrow" style={{ textAlign: "center" }}>
 <Reveal><Separator /></Reveal>
 <Reveal delay={0.08}>
 <span className="section-label">About Us</span>
 </Reveal>
 <Reveal delay={0.12}>
-<h2 className=“heading” style={{ marginBottom: 32 }}>
+<h2 className="heading" style={{ marginBottom: 32 }}>
 A local jeweller built on trust, <em>craftsmanship</em>, and service
 </h2>
 </Reveal>
 <Reveal delay={0.18}>
-<p className=“body-text” style={{ maxWidth: 620, margin: “0 auto 16px” }}>
+<p className="body-text" style={{ maxWidth: 620, margin: "0 auto 16px" }}>
 We are a traditional family owned jewellery business that have been loyally
 servicing the North Shore community since 1989. Located in the main street of
 Browns Bay, with Gerhard and son Gerry — 3rd and 4th generation watch and clock
@@ -502,7 +490,7 @@ makers — the jewellery and watch business is in our blood.
 </p>
 </Reveal>
 <Reveal delay={0.22}>
-<p className=“body-text” style={{ maxWidth: 620, margin: “0 auto” }}>
+<p className="body-text" style={{ maxWidth: 620, margin: "0 auto" }}>
 We have a full workshop facility on site so we can repair your jewellery or
 watch without it normally leaving the shop. Old fashioned service and product
 knowledge ensure you can shop with the confidence of knowing that genuine
@@ -551,7 +539,6 @@ Curated with <em className="gold-light">care</em> and expertise
 </div>
 </Reveal>
 
-```
     <div className="product-grid">
       {PRODUCTS.map((product, i) => (
         <ProductCard key={product.title} {...product} delay={i * 0.06} />
@@ -565,8 +552,6 @@ Curated with <em className="gold-light">care</em> and expertise
     </Reveal>
   </div>
 </section>
-```
-
 );
 }
 
@@ -584,7 +569,7 @@ return (
 <div className="service-card__accent" />
 <div className="service-card__icon">{icon}</div>
 <h3 className="service-card__title">{title}</h3>
-<p className=“body-text” style={{ fontSize: 14, textAlign: “center” }}>{desc}</p>
+<p className="body-text" style={{ fontSize: 14, textAlign: "center" }}>{desc}</p>
 <div className="service-card__tags">
 {tags.map((tag) => (
 <span key={tag} className="service-card__tag">
@@ -609,7 +594,6 @@ return (
 </div>
 </Reveal>
 
-```
     <div className="service-grid">
       {SERVICES.map((service, i) => (
         <ServiceCard key={service.title} {...service} delay={i * 0.08} />
@@ -617,8 +601,6 @@ return (
     </div>
   </div>
 </section>
-```
-
 );
 }
 
@@ -634,7 +616,6 @@ return (
 </div>
 </Reveal>
 
-```
     <div className="repairs__content">
       <Reveal>
         <span className="section-label section-label--light">Repairs & Restoration</span>
@@ -668,8 +649,6 @@ return (
     </div>
   </div>
 </section>
-```
-
 );
 }
 
@@ -679,7 +658,6 @@ return (
 <section className="section section--cream-gradient feature">
 <div className="feature__decoration feature__decoration--top" />
 
-```
   <div className="feature__inner">
     <Reveal>
       <div>
@@ -708,8 +686,6 @@ return (
     </Reveal>
   </div>
 </section>
-```
-
 );
 }
 
@@ -717,17 +693,16 @@ return (
 function WhyUs() {
 return (
 <section className="section section--warm-white">
-<div className=“section__container” style={{ maxWidth: 1000 }}>
+<div className="section__container" style={{ maxWidth: 1000 }}>
 <Reveal>
 <div className="section__header">
 <Separator />
 <h2 className="heading">
-Why choose <em className="gold">Augenstein’s?</em>
+Why choose <em className="gold">Augenstein's?</em>
 </h2>
 </div>
 </Reveal>
 
-```
     <div className="stats-grid">
       {STATS.map((stat, i) => (
         <Reveal key={stat.label} delay={i * 0.08}>
@@ -740,8 +715,6 @@ Why choose <em className="gold">Augenstein’s?</em>
     </div>
   </div>
 </section>
-```
-
 );
 }
 
@@ -753,15 +726,15 @@ return (
 <div className="visit__content">
 <Reveal>
 <Separator />
-<span className=“section-label” style={{ marginTop: 4 }}>Visit Us</span>
-<h2 className=“heading” style={{ marginBottom: 28 }}>
+<span className="section-label" style={{ marginTop: 4 }}>Visit Us</span>
+<h2 className="heading" style={{ marginBottom: 28 }}>
 In the heart of <em>Browns Bay</em>
 </h2>
 </Reveal>
 <Reveal delay={0.1}>
-<p className=“body-text” style={{ marginBottom: 32 }}>
+<p className="body-text" style={{ marginBottom: 32 }}>
 Come in to browse jewellery and watches, talk through a repair, or get
-advice from a trusted local team. We’re located at 60 Clyde Road in the
+advice from a trusted local team. We're located at 60 Clyde Road in the
 main street of Browns Bay.
 </p>
 </Reveal>
@@ -784,14 +757,13 @@ Sun: Closed
 </div>
 </Reveal>
 <Reveal delay={0.2}>
-<div style={{ display: “flex”, gap: 14, flexWrap: “wrap”, alignItems: “center” }}>
+<div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
 <a href="tel:+6494794391" className="visit__phone">(09) 479 4391</a>
 <Button variant="outlineGold" onClick={onEnquire}>Enquire</Button>
 </div>
 </Reveal>
 </div>
 
-```
     <div className="visit__map">
       <iframe
         title="Augenstein's location"
@@ -802,8 +774,6 @@ Sun: Closed
     </div>
   </div>
 </section>
-```
-
 );
 }
 
@@ -813,17 +783,16 @@ return (
 <footer className="footer">
 <div className="footer__grid">
 <div className="footer__brand">
-<span className="footer__brand-name">Augenstein’s</span>
+<span className="footer__brand-name">Augenstein's</span>
 <span className="footer__brand-tagline">
 Jeweller & Watchmaker · Browns Bay, Auckland
 </span>
-<p className=“body-text body-text–light” style={{ fontSize: 13, maxWidth: 300, opacity: 0.5 }}>
+<p className="body-text body-text-light" style={{ fontSize: 13, maxWidth: 300, opacity: 0.5 }}>
 A trusted family owned business serving the North Shore community since 1989.
 Three generations of watchmaking expertise.
 </p>
 </div>
 
-```
     <div>
       <span className="footer__col-title">Products</span>
       {["Fine Jewellery", "Gemstone Rings", "Watches", "Karen Walker", "Stolen Girlfriends Club"].map((item) => (
@@ -861,8 +830,6 @@ Three generations of watchmaking expertise.
     </span>
   </div>
 </footer>
-```
-
 );
 }
 
