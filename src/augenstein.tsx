@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, type ReactNode, type ChangeEvent } from “react”;
-import “./Augensteins.css”;
+import “./main.css”;
 
 // ─── Constants ────────────────────────────────────────────
 const IMAGES = {
