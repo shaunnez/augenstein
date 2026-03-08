@@ -1,13 +1,13 @@
 /* ═══════════════════════════════════════════════════════════
-   Augenstein's Jewellers — Stylesheet
+   Innes Jewellers — Stylesheet
    ═══════════════════════════════════════════════════════════ */
 
 /* ─── Design Tokens ──────────────────────────────────────── */
 :root {
-  --gold: #b8963e;
-  --gold-light: #d4b36a;
-  --gold-pale: rgba(184, 150, 62, 0.1);
-  --gold-border: rgba(184, 150, 62, 0.25);
+  --gold: #7a2332;
+  --gold-light: #9e3a4c;
+  --gold-pale: rgba(122, 35, 50, 0.1);
+  --gold-border: rgba(122, 35, 50, 0.25);
   --dark: #1a1a1a;
   --charcoal: #2a2a2a;
   --charcoal-light: #555;

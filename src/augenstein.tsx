@@ -5,89 +5,89 @@ import "./main.css";
 const IMAGES = {
 heroBg: "https://images.pexels.com/photos/265906/pexels-photo-265906.jpeg?w=1600",
 heroRing: "https://images.pexels.com/photos/691046/pexels-photo-691046.jpeg?w=900",
-rings: "https://images.pexels.com/photos/1616096/pexels-photo-1616096.jpeg?w=800",
-watches: "https://images.pexels.com/photos/169378/pexels-photo-169378.jpeg?w=800",
-fineJewellery: "https://images.pexels.com/photos/248077/pexels-photo-248077.jpeg?w=800",
-stolenGF: "https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?w=800",
-karenWalker: "https://images.pexels.com/photos/2697598/pexels-photo-2697598.jpeg?w=800",
+customDesign: "https://images.pexels.com/photos/1616096/pexels-photo-1616096.jpeg?w=800",
 engagement: "https://images.pexels.com/photos/2849742/pexels-photo-2849742.jpeg?w=800",
-watchRepair: "https://images.pexels.com/photos/3641056/pexels-photo-3641056.jpeg?w=800",
+repairs: "https://images.pexels.com/photos/3641056/pexels-photo-3641056.jpeg?w=800",
+estate: "https://images.pexels.com/photos/248077/pexels-photo-248077.jpeg?w=800",
+valuations: "https://images.pexels.com/photos/2697598/pexels-photo-2697598.jpeg?w=800",
+goldDealing: "https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?w=800",
+workshop: "https://images.pexels.com/photos/3641056/pexels-photo-3641056.jpeg?w=800",
 } as const;
 
 const NAV_ITEMS = [
-{ label: "Products", href: "#products" },
+{ label: "Jewellery", href: "#products" },
 { label: "Services", href: "#services" },
 { label: "Repairs", href: "#repairs" },
 { label: "About", href: "#about" },
-{ label: "Visit", href: "#visit" },
+{ label: "Contact", href: "#contact" },
 ] as const;
 
 const ENQUIRY_TYPES = [
 "General enquiry",
-"Jewellery",
-"Watch sales or service",
+"Custom design",
 "Repair or restoration",
-"Custom design or remodel",
-"Engagement or special occasion",
 "Valuation",
+"Estate jewellery",
+"Engagement ring",
+"Gold buying or selling",
 ] as const;
 
 const PRODUCTS = [
-{ image: IMAGES.rings, title: "Gemstone Rings", desc: "From simple elegance to sophisticated coloured gemstones." },
-{ image: IMAGES.watches, title: "Watches", desc: "Raymond Weil, Citizen, Casio, Olympic, Roamer & Royal London." },
-{ image: IMAGES.fineJewellery, title: "Fine Jewellery", desc: "Earrings, necklaces, pendants, and bracelets." },
-{ image: IMAGES.stolenGF, title: "Stolen Girlfriends Club", desc: "Bold, iconic New Zealand jewellery design." },
-{ image: IMAGES.karenWalker, title: "Karen Walker", desc: "Distinctive contemporary jewellery from NZ's leading designer." },
-{ image: IMAGES.engagement, title: "Engagement & Bridal", desc: "Find the perfect ring for life's biggest moment." },
+{ image: IMAGES.customDesign, title: "Custom Design", desc: "Bespoke pieces crafted by hand to your exact vision." },
+{ image: IMAGES.engagement, title: "Engagement Rings", desc: "Handcrafted engagement and wedding rings for life's biggest moment." },
+{ image: IMAGES.repairs, title: "Repairs & Restoration", desc: "Expert repair of fine jewellery, including antique and vintage pieces." },
+{ image: IMAGES.estate, title: "Estate Jewellery", desc: "Curated pre-owned and vintage pieces with character and history." },
+{ image: IMAGES.valuations, title: "Valuations", desc: "Professional jewellery valuations for insurance and estate purposes." },
+{ image: IMAGES.goldDealing, title: "Gold Dealing", desc: "Licensed gold dealer — fair prices for buying and selling gold." },
 ] as const;
 
 const SERVICES = [
 {
 icon: "💎",
-title: "Jewellery",
-desc: "Hand-selected pieces for everyday wear, gifting, and special occasions. As a manufacturing jeweller, we can also create to your exact requirements.",
-tags: ["Rings", "Necklaces", "Earrings", "Bracelets", "Pendants"],
-},
-{
-icon: "⌚",
-title: "Watch Sales & Service",
-desc: "Quality watches from leading brands, backed by certified watchmakers with European training. Battery replacements from $25.",
-tags: ["Raymond Weil", "Citizen", "Casio", "Olympic", "Roamer", "Royal London"],
+title: "Custom Design & Manufacturing",
+desc: "As one of New Zealand's few classically trained goldsmiths, John can design and handcraft bespoke pieces to your exact specifications.",
+tags: ["Bespoke rings", "Necklaces", "Remodelling", "Engravings", "Commissions"],
 },
 {
 icon: "🔧",
-title: "In-House Repairs",
-desc: "Full workshop on-site with all repairs kept secure in our safes overnight. Speak directly with the jeweller to ensure we understand your needs.",
-tags: ["Resizing", "Stone setting", "Polishing", "Chain repairs", "Restoration"],
+title: "Repairs & Restoration",
+desc: "Over 50 years of hands-on experience repairing and restoring fine jewellery, with particular expertise in antique and vintage pieces.",
+tags: ["Resizing", "Stone setting", "Polishing", "Chain repairs", "Antique restoration"],
+},
+{
+icon: "📋",
+title: "Valuations & Appraisals",
+desc: "Professional, thorough valuations for insurance, estate, and personal purposes from a highly experienced and qualified jeweller.",
+tags: ["Insurance valuations", "Estate appraisals", "Gem identification"],
 },
 {
 icon: "✨",
-title: "Custom Design & Remodelling",
-desc: "Transform an existing piece into something new, or work with us to design a completely bespoke creation.",
-tags: ["Bespoke design", "Remodelling", "Valuations", "Engravings"],
+title: "Gold Dealing",
+desc: "Licensed gold dealer offering fair, transparent prices. Whether you're buying or selling, you'll receive honest, expert advice.",
+tags: ["Gold buying", "Gold selling", "Licensed dealer"],
 },
 ] as const;
 
 const REPAIR_ITEMS = [
-"Batteries (under 20 min)",
-"Water pressure testing",
-"Full overhaul",
 "Ring resizing",
-"Stone replacement",
-"Clock restoration",
+"Stone replacement & setting",
+"Chain & clasp repairs",
+"Antique restoration",
+"Prong re-tipping",
 "Rhodium plating",
-"Insurance valuations",
+"Engraving",
+"Soldering & structural repairs",
 ] as const;
 
 const STATS = [
-{ number: "35+", label: "Years serving Browns Bay" },
-{ number: "70+", label: "Years combined watchmaking experience" },
-{ number: "3rd & 4th", label: "Generation watch & clock makers" },
-{ number: "On-Site", label: "Full workshop facility" },
+{ number: "50+", label: "Years in the trade" },
+{ number: "One of few", label: "Classically trained NZ goldsmiths" },
+{ number: "35+", label: "Years serving Auckland's North Shore" },
+{ number: "By Appt", label: "Personal, dedicated service" },
 ] as const;
 
 const MAPS_EMBED_URL =
-"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3194.3!2d174.7475!3d-36.7135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d39e3c5f6b7c1%3A0x2a38b0e5e39b4c0!2s60+Clyde+Rd%2C+Browns+Bay%2C+Auckland+0630!5e0!3m2!1sen!2snz!4v1700000000000";
+"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12770.0!2d174.6870!3d-36.5870!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d3a1e2f3b4c5d%3A0x1234567890abcdef!2sOrewa%2C+Auckland!5e0!3m2!1sen!2snz!4v1700000000000";
 
 // ─── Hooks ────────────────────────────────────────────────
 function useInView(threshold = 0.12): [React.RefObject<HTMLDivElement>, boolean] {
@@ -244,7 +244,7 @@ return (
           Thank you
         </h2>
         <p className="body-text">
-          We'll be in touch shortly. Feel free to call us on (09) 479 4391 if your enquiry is urgent.
+          We'll be in touch shortly. Feel free to call us on (09) 486 0250 if your enquiry is urgent.
         </p>
       </div>
     ) : (
@@ -303,7 +303,7 @@ return (
           </Button>
           <p className="modal__footnote">
             Or call us directly:{" "}
-            <a href="tel:+6494794391">(09) 479 4391</a>
+            <a href="tel:+6494860250">(09) 486 0250</a>
           </p>
         </div>
       </>
@@ -328,8 +328,8 @@ return (
 <header className={`header ${scrolled ? "header--scrolled" : ""}`}>
 <div className="header__inner">
 <a href="#" className="header__brand">
-<span className="header__title">Augenstein's</span>
-<span className="header__subtitle">Jeweller & Watchmaker · Est. 1989</span>
+<span className="header__title">Innes Jewellers</span>
+<span className="header__subtitle">Manufacturing Jeweller · Master Goldsmith</span>
 </a>
 
       <nav className="header__nav">
@@ -370,7 +370,7 @@ return (
     <div style={{ marginTop: 12 }}>
       <Button variant="outlineGold" onClick={closeAndEnquire}>Enquire Now</Button>
     </div>
-    <a href="tel:+6494794391" className="mobile-menu__phone">(09) 479 4391</a>
+    <a href="tel:+6494860250" className="mobile-menu__phone">(09) 486 0250</a>
   </div>
 </>
 );
@@ -401,26 +401,26 @@ className={`hero__bg ${loaded ? "hero__bg--loaded" : ""}`}
   <div className="hero__inner">
     <div>
       <div className={animClass(1)}>
-        <span className="hero__eyebrow">Family Owned · Browns Bay · Since 1989</span>
+        <span className="hero__eyebrow">Master Goldsmith · Orewa · 50+ Years' Experience</span>
       </div>
 
       <h1 className={`hero__title ${animClass(2)}`}>
-        Browns Bay's trusted<br />
-        jeweller <span className="ampersand">&amp;</span> watchmaker
+        Auckland's master goldsmith<br />
+        <span className="ampersand">&amp;</span> manufacturing jeweller
       </h1>
 
       <p className={`hero__subtitle ${animClass(3)}`}>
-        Beautiful jewellery, expert repairs, and personal service. Three generations
-        of watchmaking expertise — Gerhard and son Gerry, with over 70 years'
-        experience between them.
+        One of New Zealand's few classically trained goldsmiths, with over 50 years'
+        experience. Custom design, expert repairs, valuations, and estate jewellery —
+        now crafting from Orewa.
       </p>
 
       <div className={`hero__cta ${animClass(4)}`}>
         <Button
           variant="gold"
-          onClick={() => document.getElementById("visit")?.scrollIntoView({ behavior: "smooth" })}
+          onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
         >
-          Visit Our Store
+          Get in Touch
         </Button>
         <Button variant="outlineLight" onClick={onEnquire}>Enquire Now</Button>
       </div>
@@ -445,11 +445,11 @@ className={`hero__bg ${loaded ? "hero__bg--loaded" : ""}`}
 
 // ─── Trust Strip ──────────────────────────────────────────
 const TRUST_ITEMS = [
-"Family Owned & Operated",
-"Since 1989",
-"3rd & 4th Generation Watchmakers",
-"Full Workshop On-Site",
-"70+ Years Combined Experience",
+"Master Goldsmith",
+"50+ Years' Experience",
+"Classically Trained",
+"Licensed Gold Dealer",
+"Now in Orewa",
 ];
 
 function TrustStrip() {
@@ -478,23 +478,23 @@ return (
 </Reveal>
 <Reveal delay={0.12}>
 <h2 className="heading" style={{ marginBottom: 32 }}>
-A local jeweller built on trust, <em>craftsmanship</em>, and service
+A master goldsmith built on <em>craftsmanship</em> and trust
 </h2>
 </Reveal>
 <Reveal delay={0.18}>
 <p className="body-text" style={{ maxWidth: 620, margin: "0 auto 16px" }}>
-We are a traditional family owned jewellery business that have been loyally
-servicing the North Shore community since 1989. Located in the main street of
-Browns Bay, with Gerhard and son Gerry — 3rd and 4th generation watch and clock
-makers — the jewellery and watch business is in our blood.
+John Innes has been a qualified manufacturing jeweller for over 50 years and is
+one of only a few classically trained goldsmiths in New Zealand. After more than
+35 years serving Auckland's North Shore from Takapuna's Hurstmere Road, John now
+works from beautiful Orewa.
 </p>
 </Reveal>
 <Reveal delay={0.22}>
 <p className="body-text" style={{ maxWidth: 620, margin: "0 auto" }}>
-We have a full workshop facility on site so we can repair your jewellery or
-watch without it normally leaving the shop. Old fashioned service and product
-knowledge ensure you can shop with the confidence of knowing that genuine
-expertise is at hand.
+Highly experienced and skilled, John is available for custom design, repairs,
+valuations, and estate jewellery. As a licensed gold dealer, he offers a
+complete jewellery service with the personal attention that only comes from
+working directly with the craftsman.
 </p>
 </Reveal>
 </div>
@@ -532,9 +532,9 @@ return (
 <Reveal>
 <div className="section__header">
 <Separator light />
-<span className="section-label section-label--light">Our Collection</span>
+<span className="section-label section-label--light">Our Expertise</span>
 <h2 className="heading heading--light">
-Curated with <em className="gold-light">care</em> and expertise
+Crafted with <em className="gold-light">skill</em> and decades of experience
 </h2>
 </div>
 </Reveal>
@@ -547,7 +547,7 @@ Curated with <em className="gold-light">care</em> and expertise
 
     <Reveal delay={0.2}>
       <p className="product-grid__footnote">
-        Hand-selected from experience — visit in store to see our full range
+        Get in touch to discuss your jewellery needs — by appointment in Orewa
       </p>
     </Reveal>
   </div>
@@ -611,7 +611,7 @@ return (
 <div className="repairs__inner">
 <Reveal>
 <div className="repairs__image-wrapper">
-<img src={IMAGES.watchRepair} alt="Watch repair" className="repairs__image" />
+<img src={IMAGES.workshop} alt="Jewellery workshop" className="repairs__image" />
 <div className="repairs__image-fade" />
 </div>
 </Reveal>
@@ -626,10 +626,10 @@ return (
       </Reveal>
       <Reveal delay={0.1}>
         <p className="body-text body-text--light" style={{ marginBottom: 24 }}>
-          Watch repairs is a family affair at Augenstein's. Both Gerhard and Gerry are
-          certified watchmakers with European training and over 70 years' combined
-          experience. With a comprehensive workshop on-site and an extensive range of
-          parts, you can trust us for prompt and expert service.
+          With over 50 years of hands-on experience, John has repaired and restored
+          countless pieces of fine jewellery — from everyday wear to genuine antique and
+          vintage treasures. His classical training and meticulous approach ensure every
+          piece receives the care and expertise it deserves.
         </p>
       </Reveal>
       <Reveal delay={0.15}>
@@ -667,10 +667,10 @@ return (
           Looking for the <em>perfect piece?</em>
         </h2>
         <p className="body-text" style={{ marginBottom: 36 }}>
-          From milestone gifts to engagement rings, we can help you find something
-          that feels right. Not only do we carry an extensive range, but as
-          manufacturing jewellers we can create to your exact requirements. Come in
-          and talk to us about your ideas.
+          Whether it's an engagement ring, a milestone gift, or transforming an
+          heirloom into something new — John can bring your vision to life. As a
+          classically trained goldsmith, he works with you personally to design and
+          handcraft a piece that's truly one of a kind.
         </p>
         <Button variant="gold" onClick={onEnquire}>Start an Enquiry</Button>
       </div>
@@ -698,7 +698,7 @@ return (
 <div className="section__header">
 <Separator />
 <h2 className="heading">
-Why choose <em className="gold">Augenstein's?</em>
+Why choose <em className="gold">Innes Jewellers?</em>
 </h2>
 </div>
 </Reveal>
@@ -721,44 +721,42 @@ Why choose <em className="gold">Augenstein's?</em>
 // ─── Visit / Map ──────────────────────────────────────────
 function Visit({ onEnquire }: { onEnquire: () => void }) {
 return (
-<section id="visit" className="visit">
+<section id="contact" className="visit">
 <div className="visit__inner">
 <div className="visit__content">
 <Reveal>
 <Separator />
-<span className="section-label" style={{ marginTop: 4 }}>Visit Us</span>
+<span className="section-label" style={{ marginTop: 4 }}>Get in Touch</span>
 <h2 className="heading" style={{ marginBottom: 28 }}>
-In the heart of <em>Browns Bay</em>
+Now crafting from <em>Orewa</em>
 </h2>
 </Reveal>
 <Reveal delay={0.1}>
 <p className="body-text" style={{ marginBottom: 32 }}>
-Come in to browse jewellery and watches, talk through a repair, or get
-advice from a trusted local team. We're located at 60 Clyde Road in the
-main street of Browns Bay.
+Get in touch to discuss your jewellery needs — whether it's a custom design,
+a repair, a valuation, or buying and selling gold. John works by appointment,
+giving you his full, personal attention.
 </p>
 </Reveal>
 <Reveal delay={0.15}>
 <div className="visit__details">
 <div>
-<span className="visit__detail-label">Address</span>
+<span className="visit__detail-label">Location</span>
 <span className="visit__detail-value">
-60 Clyde Road<br />Browns Bay<br />Auckland 0630
+Orewa<br />Auckland
 </span>
 </div>
 <div>
 <span className="visit__detail-label">Hours</span>
 <span className="visit__detail-value">
-Mon–Fri: 8:30am – 5:30pm<br />
-Sat: 9:00am – 5:00pm<br />
-Sun: Closed
+By Appointment
 </span>
 </div>
 </div>
 </Reveal>
 <Reveal delay={0.2}>
 <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
-<a href="tel:+6494794391" className="visit__phone">(09) 479 4391</a>
+<a href="tel:+6494860250" className="visit__phone">(09) 486 0250</a>
 <Button variant="outlineGold" onClick={onEnquire}>Enquire</Button>
 </div>
 </Reveal>
@@ -766,7 +764,7 @@ Sun: Closed
 
     <div className="visit__map">
       <iframe
-        title="Augenstein's location"
+        title="Innes Jewellers location"
         src={MAPS_EMBED_URL}
         allowFullScreen
         loading="lazy"
@@ -783,38 +781,35 @@ return (
 <footer className="footer">
 <div className="footer__grid">
 <div className="footer__brand">
-<span className="footer__brand-name">Augenstein's</span>
+<span className="footer__brand-name">Innes Jewellers</span>
 <span className="footer__brand-tagline">
-Jeweller & Watchmaker · Browns Bay, Auckland
+Manufacturing Jeweller · Orewa, Auckland
 </span>
 <p className="body-text body-text-light" style={{ fontSize: 13, maxWidth: 300, opacity: 0.5 }}>
-A trusted family owned business serving the North Shore community since 1989.
-Three generations of watchmaking expertise.
+Master goldsmith with over 50 years' experience. One of New Zealand's few
+classically trained goldsmiths.
 </p>
 </div>
 
     <div>
-      <span className="footer__col-title">Products</span>
-      {["Fine Jewellery", "Gemstone Rings", "Watches", "Karen Walker", "Stolen Girlfriends Club"].map((item) => (
+      <span className="footer__col-title">Jewellery</span>
+      {["Custom Design", "Engagement Rings", "Estate Jewellery", "Repairs & Restoration", "Valuations"].map((item) => (
         <a key={item} href="#products" className="footer__link">{item}</a>
       ))}
     </div>
 
     <div>
       <span className="footer__col-title">Services</span>
-      {["Watch Repairs", "Jewellery Repairs", "Custom Design", "Remodelling", "Valuations"].map((item) => (
+      {["Custom Manufacturing", "Jewellery Repairs", "Antique Restoration", "Gold Dealing", "Valuations"].map((item) => (
         <a key={item} href="#services" className="footer__link">{item}</a>
       ))}
     </div>
 
     <div>
       <span className="footer__col-title">Contact</span>
-      <a href="tel:+6494794391" className="footer__phone">(09) 479 4391</a>
-      <a href="mailto:augensteinsjewellers@gmail.com" className="footer__link">
-        augensteinsjewellers@gmail.com
-      </a>
-      <p className="footer__link" style={{ cursor: "default" }}>60 Clyde Road, Browns Bay</p>
-      <p className="footer__link" style={{ cursor: "default" }}>Auckland 0630</p>
+      <a href="tel:+6494860250" className="footer__phone">(09) 486 0250</a>
+      <p className="footer__link" style={{ cursor: "default" }}>Orewa, Auckland</p>
+      <p className="footer__link" style={{ cursor: "default" }}>By Appointment</p>
       <div style={{ marginTop: 16 }}>
         <Button variant="outlineGold" onClick={onEnquire}>Enquire Now</Button>
       </div>
@@ -823,10 +818,10 @@ Three generations of watchmaking expertise.
 
   <div className="footer__bar">
     <span className="footer__bar-text">
-      © {new Date().getFullYear()} Augenstein's Jewellers. All rights reserved.
+      © {new Date().getFullYear()} Innes Jewellers. All rights reserved.
     </span>
     <span className="footer__bar-text footer__bar-text--faded">
-      Browns Bay's trusted jeweller since 1989
+      Auckland's master goldsmith — over 50 years' experience
     </span>
   </div>
 </footer>
@@ -834,7 +829,7 @@ Three generations of watchmaking expertise.
 }
 
 // ─── Page Export ───────────────────────────────────────────
-export default function AugensteinsHomepage() {
+export default function InnesJewellersHomepage() {
 const [enquiryOpen, setEnquiryOpen] = useState(false);
 const openEnquiry = useCallback(() => setEnquiryOpen(true), []);
 const closeEnquiry = useCallback(() => setEnquiryOpen(false), []);
