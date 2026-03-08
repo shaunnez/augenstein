@@ -785,7 +785,7 @@ return (
 <span className="footer__brand-tagline">
 Manufacturing Jeweller · Orewa, Auckland
 </span>
-<p className="body-text body-text-light" style={{ fontSize: 13, maxWidth: 300, opacity: 0.5 }}>
+<p className="body-text body-text--light" style={{ fontSize: 13, maxWidth: 300, opacity: 0.5 }}>
 Master goldsmith with over 50 years' experience. One of New Zealand's few
 classically trained goldsmiths.
 </p>
