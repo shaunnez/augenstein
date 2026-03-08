@@ -1153,7 +1153,7 @@ img {
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-light);
   display: block;
   margin-bottom: 20px;
 }
@@ -1164,7 +1164,7 @@ img {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-light);
   display: block;
   margin-bottom: 18px;
 }
@@ -1320,7 +1320,7 @@ img {
   }
 
   .feature__image {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
   }
 
   .feature__image-frame {
