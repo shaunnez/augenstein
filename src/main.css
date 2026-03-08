@@ -1376,4 +1376,81 @@ img {
   .section__header {
     margin-bottom: 48px;
   }
+
+  /* Enforce 14px minimum font size on mobile */
+  .section-label {
+    font-size: 14px;
+  }
+
+  .header__subtitle {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+
+  .hero__eyebrow {
+    font-size: 14px;
+  }
+
+  .body-text {
+    font-size: 15px;
+  }
+
+  .trust-strip__label {
+    font-size: 14px;
+  }
+
+  .product-card__desc {
+    font-size: 14px;
+  }
+
+  .product-grid__footnote {
+    font-size: 14px;
+  }
+
+  .service-card__tag {
+    font-size: 14px;
+  }
+
+  .repairs__list-item {
+    font-size: 14px;
+  }
+
+  .stat__label {
+    font-size: 14px;
+  }
+
+  .visit__detail-label {
+    font-size: 14px;
+  }
+
+  .visit__detail-value {
+    font-size: 14px;
+  }
+
+  .form-input {
+    font-size: 14px;
+  }
+
+  .modal__footnote {
+    font-size: 14px;
+  }
+
+  .footer__brand-tagline {
+    font-size: 14px;
+  }
+
+  .footer__col-title {
+    font-size: 14px;
+  }
+
+  .footer__link {
+    font-size: 14px;
+  }
+
+  .footer__bar-text {
+    font-size: 14px;
+  }
 }
